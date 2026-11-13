@@ -1,0 +1,15 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  terraform:
+    uses: patrickcmartins/terraform-workflows/.github/workflows/terraform-ci.yml@v1
+    with:
+      run-tests: true

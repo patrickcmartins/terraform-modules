@@ -1,0 +1,7 @@
+# Achados vêm do perfil cost_profile="lab" do módulo aws-eks (e do default das variáveis).
+# O consumidor restringe com public_access_cidrs / cost_profile="prod".
+# Mesmas justificativas do infra-live/.trivyignore; revisar até a data de exp.
+AWS-0040 exp:2027-03-31
+AWS-0041 exp:2027-03-31
+AWS-0104 exp:2027-03-31
+AWS-0164 exp:2027-03-31

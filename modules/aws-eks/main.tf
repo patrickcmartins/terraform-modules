@@ -56,9 +56,14 @@ module "eks" {
   subnet_ids = local.is_lab ? module.vpc.public_subnets : module.vpc.private_subnets
 
   addons = {
-    coredns                = {}
-    kube-proxy             = {}
-    vpc-cni                = { before_compute = true }
+    coredns    = {}
+    kube-proxy = {}
+    vpc-cni = {
+      before_compute = true
+      # Sem isto o VPC CNI IGNORA NetworkPolicy: o objeto existe no cluster mas não bloqueia nada.
+      # Com isto, o agente eBPF de network policy roda em cada node e as políticas passam a valer.
+      configuration_values = jsonencode({ enableNetworkPolicy = "true" })
+    }
     eks-pod-identity-agent = { before_compute = true }
   }
 

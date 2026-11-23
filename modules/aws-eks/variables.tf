@@ -52,6 +52,12 @@ variable "node_count" {
   default     = 2
 }
 
+variable "webhook_ports" {
+  description = "Portas de admission webhooks em pods que o control plane precisa alcançar (ex.: 15017 = istiod)."
+  type        = list(number)
+  default     = []
+}
+
 variable "public_access_cidrs" {
   description = "CIDRs que podem acessar o endpoint público da API. Restrinja ao seu IP."
   type        = list(string)

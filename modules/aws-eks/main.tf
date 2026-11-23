@@ -62,6 +62,19 @@ module "eks" {
     eks-pod-identity-agent = { before_compute = true }
   }
 
+  # Webhooks que rodam em pods (istiod 15017, etc.): o control plane precisa alcançar o node.
+  # O módulo upstream só libera 443/4443/6443/8443/9443/10250; o resto vem por aqui.
+  node_security_group_additional_rules = {
+    for port in var.webhook_ports : "ingress_cluster_webhook_${port}" => {
+      description                   = "Control plane -> webhook em pod (porta ${port})"
+      protocol                      = "tcp"
+      from_port                     = port
+      to_port                       = port
+      type                          = "ingress"
+      source_cluster_security_group = true
+    }
+  }
+
   eks_managed_node_groups = {
     default = {
       ami_type       = "AL2023_x86_64_STANDARD"

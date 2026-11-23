@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/patrickcmartins/terraform-modules/compare/v0.1.2...v0.2.0) (2026-11-23)
+
+
+### Features
+
+* **aws-eks:** VPC CNI aplicando NetworkPolicy (enableNetworkPolicy) ([a15d4c8](https://github.com/patrickcmartins/terraform-modules/commit/a15d4c85184d37b73f5ae5d0acb431616a5e84fd))
+
 ## [0.1.2](https://github.com/patrickcmartins/terraform-modules/compare/v0.1.1...v0.1.2) (2026-11-23)
 
 

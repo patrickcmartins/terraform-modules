@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/patrickcmartins/terraform-modules/compare/v0.1.1...v0.1.2) (2026-11-23)
+
+
+### Bug Fixes
+
+* **aws-eks:** descrição da regra de SG só com caracteres aceitos pela API da AWS ([3f51b2a](https://github.com/patrickcmartins/terraform-modules/commit/3f51b2aebbc541145af753fd99d31586cab47dd9))
+
 ## [0.1.1](https://github.com/patrickcmartins/terraform-modules/compare/v0.1.0...v0.1.1) (2026-11-23)
 
 

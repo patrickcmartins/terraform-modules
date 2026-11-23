@@ -66,7 +66,7 @@ module "eks" {
   # O módulo upstream só libera 443/4443/6443/8443/9443/10250; o resto vem por aqui.
   node_security_group_additional_rules = {
     for port in var.webhook_ports : "ingress_cluster_webhook_${port}" => {
-      description                   = "Control plane -> webhook em pod (porta ${port})"
+      description                   = "Control plane to pod webhook port ${port}"
       protocol                      = "tcp"
       from_port                     = port
       to_port                       = port
